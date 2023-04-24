@@ -57,7 +57,7 @@ m4_define([OUR_CHANGELOG], m4_expand(dnl
 
 # OUR_COMPAT
 # ----------
-m4_define([OUR_COMPAT], m4_expand([5]))# OUR_COMPAT
+m4_define([OUR_COMPAT], m4_expand([7]))# OUR_COMPAT
 
 # OUR_CONTROL
 # -----------

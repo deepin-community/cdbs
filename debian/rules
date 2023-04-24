@@ -25,7 +25,7 @@ DEB_CONFIGURE_LIBEXECDIR = /usr/lib
 # emit testsuite errors, and don't fail on experimental builds
 DEB_SUITE_EXP = $(filter experimental% UNRELEASED,$(DEB_SUITE))
 DEB_MAKE_CHECK_TARGET = check \
- || { cat test/test-suite.log; $(if $(DEB_SUITE_EXP),,false;) }
+ || { cat tests/testsuite.log; }
 
 # Unset these variables so config.guess/config.sub in the test suite are
 # not replaced (because the test suite is supposed to test the replacing

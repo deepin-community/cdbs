@@ -294,7 +294,7 @@ include /usr/share/cdbs/1/class/autotools.mk
       and CDBS will call them if necessary, autodetecting a lot of
       things.  In case of missing Debhelper compatibility information, CDBS
       will create a <filename>debian/compat</filename> file with
-      compatibility level 5.</para>
+      compatibility level 7.</para>
 
       <para>Incidentally, you should usually include
       <filename>debhelper.mk</filename> first, before other files.

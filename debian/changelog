@@ -1,3 +1,45 @@
+cdbs (0.4.166) unstable; urgency=medium
+
+  * QA upload.
+  * 1/rules/debhelper.mk.in: Call dh_scour.
+  * debian/control: Depend on scour.
+  * debian/control: Build-Depend on scour for build tests.
+  * Raise default debhelper compat to level 7.
+
+ -- Bastian Germann <bage@debian.org>  Thu, 23 Feb 2023 11:39:34 +0100
+
+cdbs (0.4.165) unstable; urgency=medium
+
+  * QA upload.
+  * revive support for (re)generating debian/control,
+    needlessly broken with release 0.4.164
+
+ -- Jonas Smedegaard <dr@jones.dk>  Wed, 11 Jan 2023 15:49:09 +0100
+
+cdbs (0.4.164) unstable; urgency=medium
+
+  * QA upload.
+  * d/control: Move Vcs to debian namespace.
+  * Drop pypy and control.in.
+  * Drop generated files.
+
+ -- Bastian Germann <bage@debian.org>  Wed, 14 Dec 2022 22:29:51 +0100
+
+cdbs (0.4.163+nmu2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * scripts/waf-unpack: Convert to Python3 syntax (Closes: #983470).
+
+ -- Bastian Germann <bage@debian.org>  Mon, 31 Oct 2022 18:54:32 +0100
+
+cdbs (0.4.163+nmu1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Don't fail the build on the test; instead show the log (Closes: #1002779)
+  * Drop !nocheck Build-Depends-Indep on pypy-dev (Closes: #1019975)
+
+ -- Paul Gevers <elbrus@debian.org>  Sat, 17 Sep 2022 22:20:04 +0200
+
 cdbs (0.4.163) unstable; urgency=medium
 
   * remove myself as uploader

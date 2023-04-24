@@ -38,7 +38,7 @@ include $(_cdbs_class_path)/langcore.mk$(_cdbs_makefile_suffix)
 #DEB_PYTHON_DESTDIR = $(DEB_DESTDIR)
 
 # implementations of Python itself
-_CDBS_PYTHONS = python2 python3 pypy
+_CDBS_PYTHONS = python2 python3
 #  * uppercase implementation names
 $(foreach p,$(_CDBS_PYTHONS),$(eval _cdbs_$p_uc := $(call cdbs_uc,$p)))
 
@@ -199,13 +199,9 @@ cdbs_python_builddeps_python3 = $(if $(_cdbs_python3_arch_packages),\
 	python3-all-dev (>= 3.1),\
 	python3-dev\
 		$(_cdbs_python3_altflavor:%=, %-dev))
-cdbs_python_builddeps_pypy = pypy-dev
 cdbs_python_builddeps = \
 	$(foreach s,$(cdbs_python_systems),\
 		$(comma) $(cdbs_python_builddeps_$s))
-cdbs_python_builddeps_cdbs = $(strip \
-	$(if $(_cdbs_pypy_packages),\
-		$(comma) cdbs (>= 0.4.144~)))
 
 # check if build is possible
 $(if $(cdbs_pythonsystem_python2),\
