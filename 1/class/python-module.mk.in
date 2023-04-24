@@ -31,7 +31,6 @@ DEB_PYTHON_PRIVATE_MODULES_DIRS_ALL ?= $(DEB_PYTHON_PRIVATE_MODULES_DIRS)
 # dh_python2 comes from python package
 CDBS_BUILD_DEPENDS_class_python-module_python2 ?= python, dh-python
 CDBS_BUILD_DEPENDS_class_python-module_python3 ?= python3, dh-python
-CDBS_BUILD_DEPENDS_class_python-module_pypy ?= pypy, dh-python
 CDBS_BUILD_DEPENDS += $(foreach s,$(cdbs_python_systems),\
 	$(comma) $(CDBS_BUILD_DEPENDS_class_python-module_$s))
 

@@ -59,6 +59,8 @@
 #   Arguments passed directly to dh_gencontrol, for a particular package <package>
 # DEB_DH_GENCONTROL_ARGS
 #   Completely override argument passing to dh_gencontrol.
+# DEB_DH_SCOUR_ARGS
+#   Completely override argument passing to dh_scour.
 # DEB_DH_MAKESHLIBS_ARGS_ALL
 #   Arguments passed directly to dh_makeshlibs, for all packages
 # DEB_DH_MAKESHLIBS_ARGS_<package>
@@ -84,7 +86,7 @@ include $(_cdbs_rules_path)/buildcore.mk$(_cdbs_makefile_suffix)
 
 DH_COMPAT ?= $(shell cat debian/compat 2>/dev/null)
 ifeq (,$(DH_COMPAT))
-DH_COMPAT = 5
+DH_COMPAT = 7
 endif
 
 # build-depend unversioned when satisfied in all supported distributions
@@ -343,6 +345,9 @@ $(patsubst %,binary-makedeb/%,$(DEB_INDEP_PACKAGES)):: binary-makedeb/%: common-
 $(patsubst %,binary-makedeb-IMPL/%,$(DEB_ALL_PACKAGES)):: binary-makedeb-IMPL/%:
 # TODO: Use DEB_DH_GENCONTROL_ARGS as package-default (not global override)
 	dh_gencontrol -p$(cdbs_curpkg) $(DEB_DH_GENCONTROL_ARGS)
+	# only call dh_scour for packages in main
+	if grep -q '^Component:[[:space:]]*main' /CurrentlyBuilding 2>/dev/null; then dh_scour -p$(cdbs_curpkg) $(DEB_DH_SCOUR_ARGS); fi
+
 	dh_md5sums -p$(cdbs_curpkg) $(call cdbs_expand_curvar,DEB_DH_MD5SUMS_ARGS)
 	$(DEB_DH_BUILDDEB_ENV) dh_builddeb -p$(cdbs_curpkg) $(call cdbs_expand_curvar,DEB_DH_BUILDDEB_ARGS)
 

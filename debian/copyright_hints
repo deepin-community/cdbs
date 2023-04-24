@@ -207,7 +207,6 @@ License: UNKNOWN
  FIXME
 
 Files: debian/control
- debian/control.in
 Copyright: mi Thebault (RTbo) <remi.thebault@gmail.com>,
 License: UNKNOWN
  FIXME

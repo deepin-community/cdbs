@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- mode: python; coding: utf-8 -*-
 #
 # Most of this code was stolen from Waf which is:
@@ -115,11 +115,11 @@ if __name__ == '__main__':
 	(options, args) = parser.parse_args()
 
 	if not options.waf and not options.dest:
-		print '--waf and --dest options are mandatory'
+		print('--waf and --dest options are mandatory')
 		parser.print_help()
 		sys.exit(1) 
 
-	print 'Unpacking ' + options.waf + ' to ' + options.dest + ' ...'
+	print('Unpacking ' + options.waf + ' to ' + options.dest + ' ...')
 	unpack_waf(options.waf, options.dest)
-	print 'Done'
+	print('Done')
 
